@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Alert, Platform } from 'react-native';
+import { View, Text, ScrollView, Alert } from 'react-native';
 import { useProfile } from '../hooks/useProfile';
 import { Avatar } from '../components/Avatar';
 import { Card, SectionTitle, ValueText, Divider } from '../components/Card';
 import { Button } from '../components/Button';
-import { globalStyles } from '../utils/styled';
+import { globalStyles, Colors, Typography, Spacing } from '../utils/styled';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -89,7 +89,7 @@ export const ProfileScreen: React.FC = () => {
           onPress={showImagePickerOptions}
           editable
         />
-        <Text style={{ marginTop: 12, fontSize: 14, color: '#888888' }}>Tap to change photo</Text>
+        <Text style={{ ...Typography.caption, color: Colors.textTertiary, marginTop: Spacing.md }}>Tap to change photo</Text>
       </View>
 
       <Card>
@@ -134,7 +134,7 @@ export const ProfileScreen: React.FC = () => {
         </View>
       </Card>
 
-      <Card style={{ marginTop: 16 }}>
+      <Card style={{ marginTop: Spacing.md }}>
         <Button title="Reset to Defaults" onPress={handleReset} variant="danger" />
       </Card>
     </ScrollView>

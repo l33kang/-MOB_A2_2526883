@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { PROJECTS } from '../data/initialData';
 import { Card, SectionTitle } from '../components/Card';
 import { TagList } from '../components/Tag';
-import { globalStyles } from '../utils/styled';
+import { globalStyles, Colors, Typography } from '../utils/styled';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';

@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Linking } from 'react-native';
+import { View, Text, ScrollView, Linking } from 'react-native';
 import { APP_METADATA } from '../data/initialData';
 import { Card, SectionTitle, Divider } from '../components/Card';
-import { globalStyles } from '../utils/styled';
+import { globalStyles, Colors, Typography, Spacing } from '../utils/styled';
 import { Button } from '../components/Button';
 import Constants from 'expo-constants';
 
@@ -16,9 +16,9 @@ export const AboutScreen: React.FC = () => {
   return (
     <ScrollView style={globalStyles.container} contentContainerStyle={globalStyles.screenContent}>
       <Card>
-        <View style={{ alignItems: 'center', marginBottom: 16 }}>
-          <Text style={{ fontSize: 28, fontWeight: '700', color: '#ffffff' }}>{APP_METADATA.appName}</Text>
-          <Text style={{ fontSize: 14, color: '#888888', marginTop: 4 }}>Version {version}</Text>
+        <View style={{ alignItems: 'center', marginBottom: Spacing.lg }}>
+          <Text style={{ ...Typography.h1, color: Colors.textPrimary }}>{APP_METADATA.appName}</Text>
+          <Text style={{ ...Typography.bodySmall, color: Colors.textTertiary, marginTop: Spacing.xs }}>Version {version}</Text>
         </View>
         <Divider />
 
@@ -67,7 +67,7 @@ export const AboutScreen: React.FC = () => {
         </View>
       </Card>
 
-      <View style={{ paddingHorizontal: 16, marginTop: 16 }}>
+      <View style={{ paddingHorizontal: Spacing.md, marginTop: Spacing.lg }}>
         <Button title="View on GitHub" onPress={handleOpenGitHub} variant="outline" />
       </View>
     </ScrollView>

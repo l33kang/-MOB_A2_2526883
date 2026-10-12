@@ -4,7 +4,7 @@ import { useProfile } from '../hooks/useProfile';
 import { Avatar } from '../components/Avatar';
 import { Card, SectionTitle, ValueText, Divider } from '../components/Card';
 import { Button } from '../components/Button';
-import { globalStyles } from '../utils/styled';
+import { globalStyles, Colors, Typography, Spacing } from '../utils/styled';
 
 export const HomeScreen: React.FC = () => {
   const { profile } = useProfile();
@@ -21,8 +21,8 @@ export const HomeScreen: React.FC = () => {
       </View>
 
       <Card>
-        <Text style={{ fontSize: 16, color: '#ffffff', textAlign: 'center', lineHeight: 24, marginBottom: 16 }}>
-          "My name is Ali salaheldin."
+        <Text style={{ ...Typography.body, color: Colors.textPrimary, textAlign: 'center', lineHeight: 24, marginBottom: 16 }}>
+          "My name is Ali Salaheldin."
         </Text>
         <Divider />
         <Text style={globalStyles.label}>Registration Number</Text>

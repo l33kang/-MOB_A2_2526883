@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet, Keyboard, Alert } from 'react-native';
+import { View, Text, ScrollView, Keyboard, Alert } from 'react-native';
 import { useProfile } from '../hooks/useProfile';
 import { validateProfile, getFieldError } from '../utils/validation';
 import { Input } from '../components/Input';
 import { Button } from '../components/Button';
 import { Card, SectionTitle, Divider } from '../components/Card';
-import { globalStyles } from '../utils/styled';
+import { globalStyles, Colors, Typography, Spacing } from '../utils/styled';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -106,7 +106,7 @@ export const ProfileEditorScreen: React.FC = () => {
     >
       <Card>
         <SectionTitle>Edit Profile</SectionTitle>
-        <Text style={{ color: '#cccccc', marginBottom: 16, fontSize: 14 }}>
+        <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.lg }}>
           Fields marked with * are required. Changes are saved locally on your device.
         </Text>
 
@@ -174,13 +174,13 @@ export const ProfileEditorScreen: React.FC = () => {
         {renderAvailabilityPicker()}
       </Card>
 
-      <View style={{ paddingHorizontal: 16, marginTop: 16 }}>
+      <View style={{ paddingHorizontal: Spacing.md, marginTop: Spacing.lg }}>
         <Button
           title="Save Changes"
           onPress={handleSave}
           disabled={isSaving}
           loading={isSaving}
-          style={{ marginBottom: 12 }}
+          style={{ marginBottom: Spacing.md }}
         />
         <Button
           title="Cancel"

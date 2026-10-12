@@ -11,9 +11,17 @@ import { AboutScreen } from '../screens/AboutScreen';
 import { ProjectDetailsScreen } from '../screens/ProjectDetailsScreen';
 import { ProfileEditorScreen } from '../screens/ProfileEditorScreen';
 import { RootStackParamList, TabParamListType } from './types';
+import { globalStyles, Colors, Shadows } from '../utils/styled';
 
 const Tab = createBottomTabNavigator<TabParamListType>();
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const headerStyle = {
+  backgroundColor: Colors.surface,
+  borderBottomWidth: 1,
+  borderBottomColor: Colors.divider,
+  ...Shadows.sm,
+};
 
 const TabNavigator: React.FC = () => {
   return (
@@ -34,18 +42,12 @@ const TabNavigator: React.FC = () => {
           }
           return <Icon name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#007aff',
-        tabBarInactiveTintColor: '#888888',
-        tabBarStyle: {
-          backgroundColor: '#1e1e1e',
-          borderTopWidth: 1,
-          borderTopColor: '#333',
-          height: 60,
-          paddingBottom: 8,
-        },
+        tabBarActiveTintColor: Colors.primary,
+        tabBarInactiveTintColor: Colors.textTertiary,
+        tabBarStyle: globalStyles.tabBarStyle,
         tabBarLabelStyle: {
           fontSize: 11,
-          fontWeight: '500',
+          fontWeight: '500' as const,
         },
         headerShown: false,
       })}
@@ -64,13 +66,14 @@ export const AppNavigator: React.FC = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerStyle: {
-            backgroundColor: '#1e1e1e',
-          },
-          headerTintColor: '#ffffff',
+          headerStyle,
+          headerTintColor: Colors.textPrimary,
           headerTitleStyle: {
-            fontWeight: '600',
+            fontWeight: '600' as const,
             fontSize: 18,
+          },
+          headerBackTitleStyle: {
+            fontSize: 16,
           },
         }}
       >

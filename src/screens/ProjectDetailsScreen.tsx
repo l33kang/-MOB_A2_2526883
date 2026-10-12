@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from 'react-native';
 import { PROJECTS } from '../data/initialData';
 import { Card, SectionTitle, Divider } from '../components/Card';
 import { TagList } from '../components/Tag';
-import { globalStyles } from '../utils/styled';
+import { globalStyles, Colors, Typography, Spacing } from '../utils/styled';
 import { useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/types';
 import { RouteProp } from '@react-navigation/native';
@@ -18,7 +18,7 @@ export const ProjectDetailsScreen: React.FC = () => {
     return (
       <ScrollView style={globalStyles.container} contentContainerStyle={globalStyles.screenContent}>
         <View style={globalStyles.centerContent}>
-          <Text style={{ color: '#ffffff', fontSize: 18 }}>Project not found</Text>
+          <Text style={{ ...Typography.h4, color: Colors.textPrimary }}>Project not found</Text>
         </View>
       </ScrollView>
     );

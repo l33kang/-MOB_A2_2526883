@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from 'react-native';
 import { SKILLS, EDUCATION } from '../data/initialData';
 import { Card, SectionTitle, ValueText, Divider } from '../components/Card';
 import { TagList } from '../components/Tag';
-import { globalStyles } from '../utils/styled';
+import { globalStyles, Colors, Typography, Spacing } from '../utils/styled';
 
 export const SkillsEducationScreen: React.FC = () => {
   return (
@@ -17,19 +17,19 @@ export const SkillsEducationScreen: React.FC = () => {
         <SectionTitle>Education & Training</SectionTitle>
         {EDUCATION.map((edu, index) => (
           <View key={edu.id}>
-            <Text style={{ fontSize: 16, fontWeight: '600', color: '#ffffff', marginBottom: 4 }}>
+            <Text style={{ ...Typography.h4, color: Colors.textPrimary, marginBottom: Spacing.xs }}>
               {edu.qualification}
             </Text>
-            <Text style={{ fontSize: 14, color: '#cccccc', marginBottom: 4 }}>
+            <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.xs }}>
               {edu.institution}
             </Text>
             {edu.startDate || edu.endDate ? (
-              <Text style={{ fontSize: 13, color: '#888888', marginBottom: 4 }}>
+              <Text style={{ ...Typography.caption, color: Colors.textTertiary, marginBottom: Spacing.xs }}>
                 {edu.startDate} - {edu.endDate || 'Present'}
               </Text>
             ) : null}
             {edu.description && (
-              <Text style={{ fontSize: 14, color: '#cccccc', marginBottom: 4, lineHeight: 20 }}>
+              <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.xs, lineHeight: 20 }}>
                 {edu.description}
               </Text>
             )}
