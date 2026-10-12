@@ -29,6 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Initialize EAS project
+        run: npx eas-cli@latest init --account 5doll --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
       - name: Build APK
         run: npx eas-cli@latest build --platform android --profile preview --non-interactive --no-wait
         env:

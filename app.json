@@ -14,9 +14,10 @@
       },
       "package": "rw.ac.ines.ug2526883.aliportfolio",
       "permissions": [
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
       ],
       "versionCode": 1
     },
@@ -40,6 +41,12 @@
           }
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "8834f0bc-6d3d-4f85-a968-dda5df3375c4"
+      }
+    },
+    "owner": "5doll"
   }
 }
