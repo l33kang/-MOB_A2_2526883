@@ -81,11 +81,10 @@ export const globalStyles = StyleSheet.create({
   screenContent: {
     flex: 1,
     paddingHorizontal: Spacing.md,
-    paddingBottom: Spacing.xl,
+    paddingBottom: Spacing.xxl,
     paddingTop: Spacing.lg,
   },
   centerContent: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: Spacing.lg,
@@ -435,6 +434,13 @@ export const globalStyles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+  },
+  textWrap: {
+    flexShrink: 1,
+    flexWrap: 'wrap',
+  },
+  textWrapFlex: {
+    flexShrink: 1,
   },
 });
 

@@ -16,11 +16,11 @@ export const SkillsEducationScreen: React.FC = () => {
       <Card>
         <SectionTitle>Education & Training</SectionTitle>
         {EDUCATION.map((edu, index) => (
-          <View key={edu.id}>
-            <Text style={{ ...Typography.h4, color: Colors.textPrimary, marginBottom: Spacing.xs }}>
+          <View key={edu.id} style={{ marginBottom: Spacing.md }}>
+            <Text style={{ ...Typography.h4, color: Colors.textPrimary, marginBottom: Spacing.xs, ...globalStyles.textWrap }}>
               {edu.qualification}
             </Text>
-            <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.xs }}>
+            <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.xs, ...globalStyles.textWrap }}>
               {edu.institution}
             </Text>
             {edu.startDate || edu.endDate ? (
@@ -29,7 +29,7 @@ export const SkillsEducationScreen: React.FC = () => {
               </Text>
             ) : null}
             {edu.description && (
-              <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.xs, lineHeight: 20 }}>
+              <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.xs, lineHeight: 20, ...globalStyles.textWrap }}>
                 {edu.description}
               </Text>
             )}

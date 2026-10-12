@@ -93,44 +93,44 @@ export const ProfileScreen: React.FC = () => {
       </View>
 
       <Card>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16, flexWrap: 'wrap', gap: Spacing.sm }}>
           <SectionTitle style={{ marginBottom: 0 }}>Profile Information</SectionTitle>
           <Button title="Edit" onPress={() => navigation.navigate('ProfileEditor')} variant="outline" />
         </View>
 
-        <View>
+        <View style={{ marginBottom: Spacing.sm }}>
           <Text style={globalStyles.label}>Full Name</Text>
-          <ValueText>{profile.fullName}</ValueText>
+          <ValueText style={globalStyles.textWrap}>{profile.fullName}</ValueText>
         </View>
         <Divider />
-        <View>
+        <View style={{ marginBottom: Spacing.sm }}>
           <Text style={globalStyles.label}>Registration Number</Text>
-          <ValueText>{profile.registrationNumber}</ValueText>
+          <ValueText style={globalStyles.textWrap}>{profile.registrationNumber}</ValueText>
         </View>
         <Divider />
-        <View>
+        <View style={{ marginBottom: Spacing.sm }}>
           <Text style={globalStyles.label}>Verification Code</Text>
-          <ValueText>{profile.verificationCode}</ValueText>
+          <ValueText style={globalStyles.textWrap}>{profile.verificationCode}</ValueText>
         </View>
         <Divider />
-        <View>
+        <View style={{ marginBottom: Spacing.sm }}>
           <Text style={globalStyles.label}>Headline</Text>
-          <ValueText>{profile.headline}</ValueText>
+          <ValueText style={globalStyles.textWrap}>{profile.headline}</ValueText>
         </View>
         <Divider />
-        <View>
+        <View style={{ marginBottom: Spacing.sm }}>
           <Text style={globalStyles.label}>Biography</Text>
-          <ValueText>{profile.biography}</ValueText>
+          <ValueText style={globalStyles.textWrap}>{profile.biography}</ValueText>
         </View>
         <Divider />
-        <View>
+        <View style={{ marginBottom: Spacing.sm }}>
           <Text style={globalStyles.label}>Primary Skill</Text>
-          <ValueText>{profile.primarySkill}</ValueText>
+          <ValueText style={globalStyles.textWrap}>{profile.primarySkill}</ValueText>
         </View>
         <Divider />
-        <View>
+        <View style={{ marginBottom: Spacing.sm }}>
           <Text style={globalStyles.label}>Availability</Text>
-          <ValueText style={{ textTransform: 'capitalize' }}>{profile.availability.replace('-', ' ')}</ValueText>
+          <ValueText style={{ textTransform: 'capitalize', ...globalStyles.textWrap }}>{profile.availability.replace('-', ' ')}</ValueText>
         </View>
       </Card>
 

@@ -15,9 +15,9 @@ export const HomeScreen: React.FC = () => {
         <Avatar uri={profile.profileImageUri} size={120} name={profile.fullName} />
       </View>
 
-      <View style={{ alignItems: 'center', marginTop: 16, marginBottom: 8 }}>
-        <Text style={globalStyles.title}>{profile.fullName}</Text>
-        <Text style={globalStyles.subtitle}>{profile.headline}</Text>
+      <View style={{ alignItems: 'center', marginTop: Spacing.md, marginBottom: Spacing.sm }}>
+        <Text style={[globalStyles.title, globalStyles.textWrap]}>{profile.fullName}</Text>
+        <Text style={[globalStyles.subtitle, globalStyles.textWrap]}>{profile.headline}</Text>
       </View>
 
       <Card>
@@ -34,18 +34,18 @@ export const HomeScreen: React.FC = () => {
 
       <Card>
         <SectionTitle>Biography</SectionTitle>
-        <ValueText>{profile.biography}</ValueText>
+        <ValueText style={globalStyles.textWrap}>{profile.biography}</ValueText>
       </Card>
 
       <Card>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <View>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: Spacing.sm }}>
+          <View style={{ flex: 1, minWidth: 120 }}>
             <Text style={globalStyles.label}>Primary Skill</Text>
-            <ValueText style={{ marginBottom: 0 }}>{profile.primarySkill}</ValueText>
+            <ValueText style={{ marginBottom: 0, ...globalStyles.textWrap }}>{profile.primarySkill}</ValueText>
           </View>
-          <View style={{ alignItems: 'flex-end' }}>
+          <View style={{ alignItems: 'flex-end', flex: 1, minWidth: 120 }}>
             <Text style={globalStyles.label}>Availability</Text>
-            <ValueText style={{ marginBottom: 0, textTransform: 'capitalize' }}>
+            <ValueText style={{ marginBottom: 0, textTransform: 'capitalize', ...globalStyles.textWrap }}>
               {profile.availability.replace('-', ' ')}
             </ValueText>
           </View>
