@@ -82,7 +82,7 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: Spacing.md,
     paddingBottom: Spacing.xl,
-    paddingTop: Spacing.sm,
+    paddingTop: Spacing.lg,
   },
   centerContent: {
     flex: 1,
