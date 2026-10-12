@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { PROJECTS } from '../data/initialData';
 import { Card, SectionTitle } from '../components/Card';
 import { TagList } from '../components/Tag';
-import { globalStyles, Colors, Typography, Spacing } from '../utils/styled';
+import { globalStyles, Colors, Typography } from '../utils/styled';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -19,10 +19,10 @@ export const ProjectsScreen: React.FC = () => {
         <TouchableOpacity
           key={project.id}
           onPress={() => navigation.navigate('ProjectDetails', { projectId: project.id })}
-          style={[globalStyles.projectCard, { width: '100%' }]}
+          style={globalStyles.projectCard}
           activeOpacity={0.8}
         >
-          <Text style={[globalStyles.projectTitle, globalStyles.textWrap]}>{project.title}</Text>
+          <Text style={globalStyles.projectTitle}>{project.title}</Text>
           <Text style={globalStyles.projectMeta}>
             {project.technologies.length} technologies • Tap for details
           </Text>

@@ -18,7 +18,7 @@ export const ProjectDetailsScreen: React.FC = () => {
     return (
       <ScrollView style={globalStyles.container} contentContainerStyle={globalStyles.screenContent}>
         <View style={globalStyles.centerContent}>
-          <Text style={{ ...Typography.h4, color: Colors.textPrimary, ...globalStyles.textWrap }}>Project not found</Text>
+          <Text style={{ ...Typography.h4, color: Colors.textPrimary }}>Project not found</Text>
         </View>
       </ScrollView>
     );
@@ -27,23 +27,23 @@ export const ProjectDetailsScreen: React.FC = () => {
   return (
     <ScrollView style={globalStyles.container} contentContainerStyle={globalStyles.screenContent}>
       <Card>
-        <Text style={[globalStyles.projectTitle, globalStyles.textWrap]}>{project.title}</Text>
+        <Text style={globalStyles.projectTitle}>{project.title}</Text>
         <TagList items={project.technologies} />
       </Card>
 
       <Card>
         <SectionTitle>Problem Statement</SectionTitle>
-        <Text style={[globalStyles.detailText, globalStyles.textWrap]}>{project.problem}</Text>
+        <Text style={globalStyles.detailText}>{project.problem}</Text>
       </Card>
 
       <Card>
         <SectionTitle>My Contribution</SectionTitle>
-        <Text style={[globalStyles.detailText, globalStyles.textWrap]}>{project.contribution}</Text>
+        <Text style={globalStyles.detailText}>{project.contribution}</Text>
       </Card>
 
       <Card>
         <SectionTitle>Description</SectionTitle>
-        <Text style={[globalStyles.detailText, globalStyles.textWrap]}>{project.description}</Text>
+        <Text style={globalStyles.detailText}>{project.description}</Text>
       </Card>
     </ScrollView>
   );

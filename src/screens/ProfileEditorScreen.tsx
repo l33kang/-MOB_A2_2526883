@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, Keyboard, Alert, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, ScrollView, Keyboard, Alert } from 'react-native';
 import { useProfile } from '../hooks/useProfile';
 import { validateProfile, getFieldError } from '../utils/validation';
 import { Input } from '../components/Input';
@@ -99,101 +99,96 @@ export const ProfileEditorScreen: React.FC = () => {
   };
 
   return (
-    <KeyboardAvoidingView
+    <ScrollView
       style={globalStyles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={0}
+      contentContainerStyle={globalStyles.screenContent}
+      keyboardShouldPersistTaps="handled"
     >
-      <ScrollView
-        contentContainerStyle={globalStyles.screenContent}
-        keyboardShouldPersistTaps="handled"
-      >
-        <Card>
-          <SectionTitle>Edit Profile</SectionTitle>
-          <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.lg }}>
-            Fields marked with * are required. Changes are saved locally on your device.
-          </Text>
+      <Card>
+        <SectionTitle>Edit Profile</SectionTitle>
+        <Text style={{ ...Typography.bodySmall, color: Colors.textSecondary, marginBottom: Spacing.lg }}>
+          Fields marked with * are required. Changes are saved locally on your device.
+        </Text>
 
-          <Input
-            label="Full Name *"
-            value={formData.fullName}
-            onChangeText={v => handleChange('fullName', v)}
-            onBlur={() => handleBlur('fullName')}
-            placeholder="Enter your full name"
-            error={touched.fullName ? errors.fullName : undefined}
-          />
+        <Input
+          label="Full Name *"
+          value={formData.fullName}
+          onChangeText={v => handleChange('fullName', v)}
+          onBlur={() => handleBlur('fullName')}
+          placeholder="Enter your full name"
+          error={touched.fullName ? errors.fullName : undefined}
+        />
 
-          <Input
-            label="Registration Number *"
-            value={formData.registrationNumber}
-            onChangeText={v => handleChange('registrationNumber', v)}
-            onBlur={() => handleBlur('registrationNumber')}
-            placeholder="7-digit number"
-            keyboardType="numeric"
-            error={touched.registrationNumber ? errors.registrationNumber : undefined}
-          />
+        <Input
+          label="Registration Number *"
+          value={formData.registrationNumber}
+          onChangeText={v => handleChange('registrationNumber', v)}
+          onBlur={() => handleBlur('registrationNumber')}
+          placeholder="7-digit number"
+          keyboardType="numeric"
+          error={touched.registrationNumber ? errors.registrationNumber : undefined}
+        />
 
-          <Input
-            label="Verification Code *"
-            value={formData.verificationCode}
-            onChangeText={v => handleChange('verificationCode', v)}
-            onBlur={() => handleBlur('verificationCode')}
-            placeholder="Format: MOB-A2-XXXX"
-            error={touched.verificationCode ? errors.verificationCode : undefined}
-          />
+        <Input
+          label="Verification Code *"
+          value={formData.verificationCode}
+          onChangeText={v => handleChange('verificationCode', v)}
+          onBlur={() => handleBlur('verificationCode')}
+          placeholder="Format: MOB-A2-XXXX"
+          error={touched.verificationCode ? errors.verificationCode : undefined}
+        />
 
-          <Divider />
+        <Divider />
 
-          <Input
-            label="Headline *"
-            value={formData.headline}
-            onChangeText={v => handleChange('headline', v)}
-            onBlur={() => handleBlur('headline')}
-            placeholder="e.g., Mobile Application Developer"
-            error={touched.headline ? errors.headline : undefined}
-          />
+        <Input
+          label="Headline *"
+          value={formData.headline}
+          onChangeText={v => handleChange('headline', v)}
+          onBlur={() => handleBlur('headline')}
+          placeholder="e.g., Mobile Application Developer"
+          error={touched.headline ? errors.headline : undefined}
+        />
 
-          <Input
-            label="Biography *"
-            value={formData.biography}
-            onChangeText={v => handleChange('biography', v)}
-            onBlur={() => handleBlur('biography')}
-            placeholder="Tell us about yourself (20-500 characters)"
-            multiline
-            numberOfLines={4}
-            error={touched.biography ? errors.biography : undefined}
-          />
+        <Input
+          label="Biography *"
+          value={formData.biography}
+          onChangeText={v => handleChange('biography', v)}
+          onBlur={() => handleBlur('biography')}
+          placeholder="Tell us about yourself (20-500 characters)"
+          multiline
+          numberOfLines={4}
+          error={touched.biography ? errors.biography : undefined}
+        />
 
-          <Divider />
+        <Divider />
 
-          <Input
-            label="Primary Skill *"
-            value={formData.primarySkill}
-            onChangeText={v => handleChange('primarySkill', v)}
-            onBlur={() => handleBlur('primarySkill')}
-            placeholder="e.g., React Native"
-            error={touched.primarySkill ? errors.primarySkill : undefined}
-          />
+        <Input
+          label="Primary Skill *"
+          value={formData.primarySkill}
+          onChangeText={v => handleChange('primarySkill', v)}
+          onBlur={() => handleBlur('primarySkill')}
+          placeholder="e.g., React Native"
+          error={touched.primarySkill ? errors.primarySkill : undefined}
+        />
 
-          {renderAvailabilityPicker()}
-        </Card>
+        {renderAvailabilityPicker()}
+      </Card>
 
-        <View style={{ paddingHorizontal: Spacing.md, marginTop: Spacing.lg, marginBottom: Spacing.xxl }}>
-          <Button
-            title="Save Changes"
-            onPress={handleSave}
-            disabled={isSaving}
-            loading={isSaving}
-            style={{ marginBottom: Spacing.md }}
-          />
-          <Button
-            title="Cancel"
-            onPress={() => navigation.goBack()}
-            variant="outline"
-            disabled={isSaving}
-          />
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      <View style={{ paddingHorizontal: Spacing.md, marginTop: Spacing.lg }}>
+        <Button
+          title="Save Changes"
+          onPress={handleSave}
+          disabled={isSaving}
+          loading={isSaving}
+          style={{ marginBottom: Spacing.md }}
+        />
+        <Button
+          title="Cancel"
+          onPress={() => navigation.goBack()}
+          variant="outline"
+          disabled={isSaving}
+        />
+      </View>
+    </ScrollView>
   );
 };
