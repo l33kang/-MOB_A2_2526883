@@ -47,6 +47,9 @@
         "projectId": "8834f0bc-6d3d-4f85-a968-dda5df3375c4"
       }
     },
-    "owner": "5doll"
+    "owner": "5doll",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
   }
 }
