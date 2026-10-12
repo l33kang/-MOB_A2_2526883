@@ -36,9 +36,13 @@ jobs:
 
       - name: Wait for build
         run: npx eas-cli@latest build:list --platform android --limit 1 --json | jq -r '.[0].id' | xargs -I {} npx eas-cli@latest build:wait {}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: Download APK
         run: npx eas-cli@latest build:list --platform android --limit 1 --json | jq -r '.[0].artifacts.buildUrl' | xargs -I {} curl -L {} -o AliPortfolio.apk
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
