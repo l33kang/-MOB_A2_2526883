@@ -30,9 +30,7 @@ jobs:
         run: npm ci
 
       - name: Initialize EAS project
-        run: |
-          npx eas-cli@latest init --account 5doll --non-interactive
-          npx eas-cli@latest build:configure --platform android --non-interactive
+        run: npx eas-cli@latest init --account 5doll --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
